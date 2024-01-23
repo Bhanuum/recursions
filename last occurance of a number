@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int last(int *a,int key,int n)
+
+{
+
+    if(n==0)return -1;
+    int sm=last(a+1,key,n-1);
+    if(sm==-1)
+    {
+        if(a[0]==key)return 0;
+        else return -1;
+        
+    }
+    else
+    {
+        return sm+1;
+    }
+    
+}
+
+
+int main()
+{
+    int n;
+    cin>>n;
+    int a[4]={1,2,7,8};
+    int p=last(a,7,4);
+    cout<<p;
+}
