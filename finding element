@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int fib(int a[],int key,int i,int n)
+{
+    if(i<n&& a[i]==key)
+    {
+     return i;
+    }
+    else
+    {
+        return fib(a,key,i+1,n);
+    }
+    
+  
+return false;
+    
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int a[4]={1,4,7,8};
+    int p=fib(a,8,0,4);
+    cout<<p;
+}
