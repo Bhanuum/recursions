@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+void merge(int *a,int low,int mid,int high,int n)
+{
+    int i=low;
+    int j=mid+1;
+    int temp[high+1];
+    int k=low;
+    while(i<=mid&&j<=high)
+    {
+      if(a[i]<a[j])
+      {
+          temp[k++]=a[i++];
+      }
+      else
+      {
+          temp[k++]=a[j++];
+      }
+    }
+    while(i<=mid)
+    {
+        temp[k++]=a[i++];
+    }
+    while(j<=high)
+    {
+        temp[k++]=a[j++];
+    }
+     for (i = low; i <= high; i++) {
+        a[i] = temp[i];
+    }
+}   
+void mergesort(int *a,int low,int high,int n)
+{
+    if(low>=high)return;
+    else{
+    int mid=(low+high)/2;
+    mergesort(a,low,mid,n);
+    mergesort(a,mid+1,high,n);
+    merge(a,low,mid,high,n);}
+}
+
+
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    mergesort(a,0,n-1,n);
+    for(int i=0;i<n;i++)
+    {
+        cout<<a[i]<<" ";
+    }
+
+    return 0;
+}
