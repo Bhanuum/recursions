@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+void gets(string s,vector<int>&fre,string ans)
+{
+    if(s.size()==ans.size())
+    {
+        cout<<ans<<endl;
+        return;
+    }
+    for(int i=0;i<fre.size();i++)
+    {
+         if(fre[i]==0)
+         {
+             fre[i]=1;
+             gets(s,fre,ans+s[i]);
+             fre[i]=0;
+         }
+    }
+}
+int main()
+{
+   string s;
+   cin>>s;
+    vector<int>fre(s.size(),0);
+    gets(s,fre,"");
+}
